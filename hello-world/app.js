@@ -15,18 +15,18 @@ let response;
  * 
  */
 exports.lambdaHandler = async (event, context) => {
-    try {
-        // const ret = await axios(url);
-        response = {
-            'statusCode': 200,
-            'body': JSON.stringify({
-                message: 'hello my friend',
-            })
-        }
-    } catch (err) {
-        console.log(err);
-        return err;
-    }
+    throw new Error("This will cause a deployment rollback");
+    // try {
+    //     response = {
+    //         'statusCode': 200,
+    //         'body': JSON.stringify({
+    //             message: 'hello my friend with canaries',
+    //         })
+    //     }
+    // } catch (err) {
+    //     console.log(err);
+    //     return err;
+    // }
 
-    return response
+    // return response
 };
